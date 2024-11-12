@@ -1,0 +1,30 @@
+<div class="wideScreen">
+  <div class="botonera">
+    <div class="spacer"></div>
+    <ng-container *ngFor="let item of items">
+      <button mat-button [routerLink]="item.url">{{ item.texto }}</button>
+    </ng-container>
+    <div class="spacer"></div>
+  </div>
+</div>
+<div class="smallScreen">
+  <div class="botonera">
+    <div class="spacer"></div>
+    <button
+      mat-icon-button
+      [matMenuTriggerFor]="menu2"
+      aria-label="Menu"
+      class="smallScreen"
+      data-cy="menu_principal"
+    >
+      <mat-icon>more_vertical</mat-icon>
+    </button>
+    <mat-menu #menu2="matMenu">
+      <ng-container *ngFor="let item of items">
+        <button mat-button [routerLink]="item.url" class="full-width">
+          {{ item.texto }}
+        </button>
+      </ng-container>
+    </mat-menu>
+  </div>
+</div>

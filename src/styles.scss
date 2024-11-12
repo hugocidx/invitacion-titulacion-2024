@@ -1,0 +1,182 @@
+/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+body {
+  padding-top: 0px;
+  margin: 0px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+:root {
+  --blanco: #f4f4f4;
+  --gris: #f0f0f0;
+  --gris_claro_a: #eaeaea;
+  --gris_claro_b: #f0f0f0;
+  --verde: #00aa00;
+  --muzgo: #384d28;
+  --rojo: #f70000;
+  --amarillo_pastel: #fec60d;
+  --amarillo: #fec60d; //PALETA UC
+  --amarillo_oscuro: #e3ae00;
+  --celeste: #0176de;
+  --azul: #173f8a;
+  --azul_oscuro: #03122e;
+  --plomo: #707070;
+  --secondary: #2a2727;
+  --terracota: #9a031e;
+  --ocre: #f4a261;
+  --violeta: #b8bedd;
+}
+.full-width {
+  width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  max-width: 360px;
+}
+.half-width {
+  width: 50%;
+}
+.oculta {
+  display: none;
+}
+.mat-active {
+  color: var(--verde);
+}
+.mat-inactive {
+  color: var(--plomo);
+}
+h1 {
+  font-size: 2.5em;
+  line-height: 2.5rem;
+  padding-top: 35px;
+}
+h2 {
+  padding-top: 20px;
+}
+h3 {
+  padding-top: 16px;
+}
+h2::after {
+  content: "";
+  display: inline-block;
+  margin-left: 24px;
+  width: 36px;
+  height: 4px;
+  margin-bottom: 6px;
+  background-color: #fec60d;
+}
+h3::after {
+  content: "";
+  display: inline-block;
+  margin-left: 24px;
+  width: 36px;
+  height: 4px;
+  margin-bottom: 3px;
+  background-color: #fec60d;
+}
+.rag-green {
+  background-color: rgb(233, 250, 233) !important;
+  color: var(--plomo);
+}
+.rag-amber {
+  background-color: rgb(247, 247, 215) !important;
+  color: var(--plomo);
+}
+.rag-red {
+  background-color: rgb(248, 215, 220) !important;
+  color: var(--plomo);
+}
+.mat-accent .mat-slider-thumb,
+.mat-accent .mat-slider-thumb-label,
+.mat-accent .mat-slider-track-fill {
+  background-color: #fff;
+}
+.ag-container {
+  flex: 1 1;
+  align-items: center;
+  display: block;
+  height: 200px;
+  width: 100%;
+}
+.ag-container-result-list {
+  flex: 1 1;
+  align-items: center;
+  display: block;
+  height: 250px;
+  width: 100%;
+}
+.centralAction {
+  display: flex;
+  flex: 1 1;
+  justify-content: center;
+  align-items: center;
+  justify-self: center;
+  top: auto;
+  right: 100px;
+  height: 200px;
+  z-index: 999;
+}
+.primaryAction {
+  position: fixed;
+  top: auto;
+  bottom: 50px;
+  right: 80px;
+  z-index: 999;
+}
+.secondaryAction {
+  position: fixed;
+  top: auto;
+  bottom: 50px;
+  left: 50px;
+  z-index: 99;
+}
+.spacer {
+  flex: 1 1 10px;
+  align-items: flex-end;
+  justify-items: right;
+}
+.spacerV {
+  display: block;
+  min-height: 2rem;
+}
+.botonera {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+  padding-right: 50px;
+}
+.botonera-r {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+
+  justify-content: space-between;
+}
+.panel_lateral {
+  dt {
+    font-weight: normal;
+    padding-left: 0px;
+    font-size: 0.7rem;
+    break-before: avoid;
+  }
+  dl,
+  dd {
+    font-weight: bold;
+    font-size: 0.9rem;
+    padding-left: 5px;
+    color: var(--secondary);
+  }
+  dd {
+    margin-bottom: 0.5rem;
+  }
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

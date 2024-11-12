@@ -1,0 +1,45 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@app/*": ["src/app/*"],
+      "@assets/*": ["src/assets/*"],
+      "@env/*": ["src/environments/*"],
+      "@forms/*": ["src/app/forms/*"],
+      "@interceptor/*": ["src/app/interceptor/*"],
+      "@interfaces/*": ["src/app/interfaces/*"],
+      "@layout/*": ["src/app/layout/*"],
+      "@lists/*": ["src/app/lists/*"],
+      "@menu/*": ["src/app/menu/*"],
+      "@notifications/*": ["src/app/notifications/*"],
+      "@pages/*": ["src/app/pages/*"],
+      "@process/*": ["src/app/process/*"],
+      "@selectors/*": ["src/app/selectors/*"],
+      "@services/*": ["src/app/services/*"]
+    },
+    "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
+    "strict": false,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "declaration": false,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "ES2022",
+    "module": "ES2022",
+    "useDefineForClassFields": false,
+    "lib": ["ES2022", "dom"]
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  }
+}

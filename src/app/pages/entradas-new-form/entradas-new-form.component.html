@@ -1,0 +1,420 @@
+<div class="uc-header-denominacion-internacional-alpha__example-container">
+  <header class="uc-header">
+    <div id="uc-global-topbar"></div>
+    <nav class="uc-navbar navbar-dark">
+      <div class="container d-none d-lg-block">
+        <div class="row">
+          <div class="col-lg-3 col-xl-2">
+            <img
+              src="https://kit-digital-uc-prod.s3.amazonaws.com/assets/logo-uc-blanco.svg"
+              alt="Pontificia Universidad Católica de Chile"
+              class="img-fluid"
+            />
+          </div>
+          <div class="col-lg-8 col-xl-9 pl-60">
+            <div class="h2 text-font--serif color-white mt-24">
+              Facultad de Agronomia y Sistemas Naturales
+            </div>
+            <mat-icon></mat-icon>
+            <div class="color-white p-size--lg">
+              Confirmación Participación Ceremonia de Titulación - Noviembre
+              2024
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="uc-navbar_mobile d-block d-lg-none">
+        <div class="uc-navbar_mobile-bar navbar-brand">
+          <div class="uc-navbar_mobile-logo navbar-light">
+            <div class="h2 text-font--serif color-white">
+              Confirmación Participación Ceremonia de Titulación - Noviembre
+              2024
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+</div>
+
+<form
+  [formGroup]="primaryForm"
+  class="dialogo"
+  enctype="multipart/form-data"
+  (ngSubmit)="onSubmit()"
+>
+  <!-- cuerpo del formulario -->
+  <mat-dialog-content>
+    <div class="dialog-container">
+      <!-- Icono -->
+      <div class="row">
+        <!-- Mensaje de la ceremonia -->
+        <mat-label class="col-12 subtitle">
+          La ceremonia de entrega de títulos se llevará a cabo de manera
+          presencial en el campus San Joaquín el martes 26 de noviembre a las
+          18:00 horas.
+        </mat-label>
+
+        <!-- Mensaje de bienvenida -->
+        <mat-card class="welcome-card">
+          <h2 class="welcome-title">
+            ¡Bienvenido/a!
+            <strong>{{ data.name }} {{ data.lastname_1 }}</strong>
+          </h2>
+          <mat-divider></mat-divider>
+          <mat-icon></mat-icon>
+          <p class="welcome-message">
+            Estamos encantados de invitarte a la Ceremonia de Titulación. Por
+            favor, completa el siguiente formulario para confirmar tu
+            participación en este evento especial.
+          </p>
+        </mat-card>
+        <!-- Opciones de asistencia -->
+        <div class="col-12 attendance-section">
+          <mat-card>
+            <mat-radio-group
+              class="custom-radio-vertical"
+              formControlName="will_attend"
+            >
+              <mat-radio-button value="1" matTooltip="click">
+                Sí, asistiré.
+              </mat-radio-button>
+              <mat-radio-button value="2" matTooltip="click">
+                No podré asistir, pero otra persona recibe por mí.
+              </mat-radio-button>
+              <mat-radio-button value="0" matTooltip="click">
+                No podré asistir.
+              </mat-radio-button>
+            </mat-radio-group>
+          </mat-card>
+        </div>
+
+        <!-- Campo de representante si no asiste -->
+        <mat-divider></mat-divider>
+
+        <div
+          *ngIf="showRepresentativeSection"
+          class="col-12 representative-section"
+        >
+          <mat-card>
+            <mat-form-field class="form-field">
+              <mat-label>
+                Nombre de la persona quien recibe mi Título Universitario
+              </mat-label>
+              <mat-hint>(sólo puede ser un familiar directo)</mat-hint>
+              <input
+                formControlName="representative_name"
+                matInput
+                type="text"
+              />
+              <button
+                (click)="clearField('representative_name')"
+                aria-label="Limpiar"
+                mat-icon-button
+                matSuffix
+                matTooltip="Limpiar"
+                type="button"
+              >
+                <mat-icon>close</mat-icon>
+              </button>
+            </mat-form-field>
+          </mat-card>
+        </div>
+
+        <mat-divider></mat-divider>
+
+        <!-- Nominación estudiante -->
+        <div class="col-12 nomination-section">
+          <mat-card>
+            <h1>Premio a la Trayectoria Estudiantil</h1>
+            <mat-label>
+              Nomina a uno o dos estudiantes que se hayan destacado durante su
+              vida universitaria.
+            </mat-label>
+            <mat-form-field class="form-field">
+              <mat-label>Nomino a:</mat-label>
+              <mat-hint
+                >Escribe el nombre y los 2 apellidos de la persona que
+                nominas.</mat-hint
+              >
+              <input
+                formControlName="student_nominated_name"
+                matInput
+                type="text"
+              />
+              <button
+                (click)="clearField('student_nominated_name')"
+                aria-label="Limpiar"
+                mat-icon-button
+                matSuffix
+                matTooltip="Limpiar"
+                type="button"
+              >
+                <mat-icon>close</mat-icon>
+              </button>
+            </mat-form-field>
+
+            <!-- razon de nominacione estudiante -->
+            <mat-form-field class="form-field">
+              <mat-label
+                >¿Por qué nominaste a este/a o estos/as estudiantes?</mat-label
+              >
+              <input
+                formControlName="student_nominated_reason"
+                matInput
+                type="text"
+              />
+              <button
+                (click)="clearField('student_nominated_reason')"
+                aria-label="Limpiar"
+                mat-icon-button
+                matSuffix
+                matTooltip="Limpiar"
+                type="button"
+              >
+                <mat-icon>close</mat-icon>
+              </button>
+            </mat-form-field>
+          </mat-card>
+        </div>
+
+        <mat-divider></mat-divider>
+
+        <!-- Nominación docente -->
+        <div class="col-12 teacher-nomination-section">
+          <mat-card>
+            <h1>Reconocimiento al Docente "Semilla de Inspiración"</h1>
+            <mat-label>
+              Esta nominación tiene la finalidad de reconocer a docentes que
+              hayan marcado positivamente tu trayectoria universitaria.
+            </mat-label>
+            <mat-form-field class="form-field">
+              <mat-label>Nomino a:</mat-label>
+              <mat-hint
+                >Escribe el nombre y los 2 apellidos del docente que
+                nominas.</mat-hint
+              >
+              <input
+                formControlName="teacher_nominated_name"
+                matInput
+                type="text"
+              />
+              <button
+                (click)="clearField('teacher_nominated_name')"
+                aria-label="Limpiar"
+                mat-icon-button
+                matSuffix
+                matTooltip="Limpiar"
+                type="button"
+              >
+                <mat-icon>close</mat-icon>
+              </button>
+            </mat-form-field>
+
+            <mat-form-field class="form-field">
+              <mat-label>¿Por qué nominas a este/a docente?</mat-label>
+              <input
+                formControlName="teacher_nominated_reason"
+                matInput
+                type="text"
+              />
+              <button
+                (click)="clearField('teacher_nominated_reason')"
+                aria-label="Limpiar"
+                mat-icon-button
+                matSuffix
+                matTooltip="Limpiar"
+                type="button"
+              >
+                <mat-icon>close</mat-icon>
+              </button>
+            </mat-form-field>
+          </mat-card>
+        </div>
+
+        <mat-divider></mat-divider>
+
+        <!-- Sección de carga de imágenes -->
+        <div *ngIf="showPhotoUploadSection" class="col-12 photo-upload-section">
+          <h1>
+            Fotografía para la Ceremonia - "Compartiendo Recuerdos
+            Universitarios"
+          </h1>
+          <mat-label>
+            Por favor adjunta 1 o 2 fotografías que quieras compartir con tus
+            compañeros/as durante la ceremonia.
+          </mat-label>
+          <div class="image-upload">
+            <mat-icon></mat-icon>
+
+            <dropzone
+              (error)="onUploadError($event)"
+              (success)="onUploadSuccess($event)"
+              [config]="configDropzone"
+              [message]="'Haga clic o arrastre las imágenes aquí para cargar'"
+            ></dropzone>
+
+            <!-- Mostrar todas las imágenes subidas -->
+            <ng-container *ngIf="combinedImages.length > 0">
+              <div class="col-12">
+                <div
+                  *ngFor="let image of combinedImages"
+                  class="image-item row"
+                >
+                  <div class="col-4">
+                    <img
+                      class="image-preview"
+                      id="base64image"
+                      [src]="image.dataURL"
+                    />
+                  </div>
+                  <div class="col-6">
+                    <div class="image-info">
+                      <span>{{ image.name }}</span>
+                    </div>
+                  </div>
+
+                  <div class="col-2">
+                    <button
+                      mat-icon-button
+                      type="button"
+                      (click)="deleteImage(image.id)"
+                    >
+                      <mat-icon>delete</mat-icon>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+
+            <mat-icon></mat-icon>
+            <mat-form-field class="form-field">
+              <label>Fotografía 1:</label>
+              <input
+                matInput
+                formControlName="photo1_label"
+                type="text"
+                placeholder="Descripción de la imagen"
+              />
+            </mat-form-field>
+
+            <mat-icon></mat-icon>
+
+            <mat-form-field class="form-field">
+              <label>Fotografía 2:</label>
+              <input
+                matInput
+                formControlName="photo2_label"
+                type="text"
+                placeholder="Descripción de la imagen"
+              />
+            </mat-form-field>
+          </div>
+          <mat-hint>
+            Sube 1 archivo compatible: PDF, audio, document, drawing, image,
+            presentation, spreadsheet o video. El tamaño máximo es de 20 MB.
+          </mat-hint>
+        </div>
+      </div>
+    </div>
+  </mat-dialog-content>
+
+  <!-- botonera final-->
+  <div class="botonera">
+    <!-- cerrar  formulario  -->
+    <button
+      mat-button
+      class="btn-limpiar"
+      data-cy="btn-form-close"
+      type="button"
+      (click)="clear()"
+    >
+      <span> Limpiar Formulario </span>
+    </button>
+
+    <div class="spacer"></div>
+
+    <!-- crear solicitud  -->
+    <button
+      class="uc-btn btn-cta"
+      type="submit"
+      (ngSubmit)="onSubmit()"
+      [disabled]="!primaryForm.valid"
+    >
+      <span> Enviar formulario </span>
+    </button>
+  </div>
+</form>
+
+<footer class="uc-footer">
+  <div class="container pb-48">
+    <div class="row">
+      <div class="col-7 col-md-3 col-xl-2 mb-32">
+        <a href="/">
+          <img
+            src="https://kit-digital-uc-prod.s3.amazonaws.com/assets/logo-uc-blanco.svg"
+            alt="Pontificia Universidad Católica de Chile"
+            class="img-fluid"
+          />
+        </a>
+      </div>
+      <div class="col-lg-8 offset-lg-1">
+        <div class="h2 color-white text-font--serif mt-28">
+          Sistema de Confirmaciones UC
+        </div>
+        <ul class="uc-footer_social">
+          <!-- agregar enlaces a redes sociales correspondientes -->
+          <li>
+            <a href="#">
+              <img
+                src="https://kit-digital-uc-prod.s3.amazonaws.com/assets/social-icon-twitter.svg"
+                alt="Twitter"
+              />
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img
+                src="https://kit-digital-uc-prod.s3.amazonaws.com/assets/social-icon-facebook.svg"
+                alt="Facebook"
+              />
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img
+                src="https://kit-digital-uc-prod.s3.amazonaws.com/assets/social-icon-instagram.svg"
+                alt="Instagram"
+              />
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img
+                src="https://kit-digital-uc-prod.s3.amazonaws.com/assets/social-icon-linkedin.svg"
+                alt="Linkedin"
+              />
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img
+                src="https://kit-digital-uc-prod.s3.amazonaws.com/assets/social-icon-youtube.svg"
+                alt="Youtube"
+              />
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img
+                src="https://kit-digital-uc-prod.s3.amazonaws.com/assets/social-icon-flickr.svg"
+                alt="Flickr"
+              />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div id="uc-global-footer"></div>
+</footer>

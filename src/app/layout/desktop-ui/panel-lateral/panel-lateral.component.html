@@ -1,0 +1,19 @@
+<div class="panel_lateral">
+  <div class="botonera">
+    <div class="spacer"></div>
+    <div>
+      <ng-content select="[command]"></ng-content>
+    </div>
+    <div>
+      <button data-cy="btn-primary-lateral" mat-icon-button disabled>
+        <mat-icon></mat-icon>
+      </button>
+    </div>
+    <div class="content">
+      <ng-content select="[content]"></ng-content>
+    </div>
+    <div class="form">
+      <ng-content select="[form]"></ng-content>
+    </div>
+  </div>
+</div>

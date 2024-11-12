@@ -1,0 +1,24 @@
+.container2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--gris);
+  padding-top: 10px;
+}
+.content2 {
+  display: block;
+  margin-bottom: 65px;
+  background-color: var(--blanco);
+  width: 95%;
+  max-width: 900px;
+  min-height: calc(100vh - 65px) !important;
+  left: 0px;
+  right: 0px;
+  padding: 0px;
+}
+@media screen and (max-width: 600px) {
+  .content2 {
+    width: 100%;
+    max-width: 450px;
+  }
+}

@@ -1,0 +1,14 @@
+<div>
+  <ng-container *ngFor="let item of items">
+    <button
+      data-cy="btn-primary-commands-vertical"
+      mat-icon-button
+      (click)="handleAction(item.action)"
+      [disabled]="!(hasSelection || item?.zeroItems) || disabled"
+      [matTooltip]="item.tooltip"
+      [attr.aria-label]="item.arialabel"
+    >
+      <mat-icon>{{ item.icon_on }}</mat-icon>
+    </button>
+  </ng-container>
+</div>

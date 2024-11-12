@@ -1,0 +1,29 @@
+.title {
+  padding-left: 100px;
+  padding: 0px;
+  font-weight: bold;
+  font-size: 1.05em;
+  align-items: center;
+  display: block;
+  flex-wrap: nowrap;
+  width: 50vw;
+}
+.title::after {
+  content: "";
+  display: inline-block;
+  margin-left: 24px;
+  width: 36px;
+  height: 4px;
+  margin-bottom: 2px;
+  background-color: #fec60d;
+}
+.boton_encendido {
+  background-color: #fec60d;
+}
+.botoneraVertical {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}

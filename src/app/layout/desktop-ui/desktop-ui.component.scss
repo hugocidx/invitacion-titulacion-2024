@@ -1,0 +1,112 @@
+:host {
+  display: block;
+  width: 100%;
+  height: calc(100vh - 70px);
+}
+.mat-mdc-form-field + .mat-mdc-form-field {
+  margin-left: 8px;
+}
+.floatingSegment {
+  left: 6px;
+}
+.mat-drawer-backdrop {
+  background-color: transparent !important;
+}
+
+.btnPanel{
+  display: inline-table;
+}
+.mat-mdc-button:not(:disabled) {
+  color: #f0f0f0;
+}
+.bloc {
+  height: 100%;
+}
+.uicontrol {
+  align-items: center;
+  background-color: rgb(231, 231, 231);
+}
+.contenedorGeneral {
+  display: flex;
+  // flex-direction: row;
+  // align-items: flex-start;
+  // justify-content: space-between;
+}
+.leftContainerInterno {
+  min-width: 64px;
+  // max-width: 0px;
+  display: block;
+  height: calc(100vh - 70px);
+  // background-color: #04296e;
+  color: white;
+}
+.leftContainer {
+  min-width: 48px;
+  max-width: 48px;
+  display: block;
+  height: calc(100vh - 70px);
+  background-color: var(--azul);
+  color: white;
+}
+.mainContainer {
+  // margin-left: 10px;
+  width: calc(100vw - 50px);
+}
+.mat-drawer {
+  margin: 0;
+  padding: 0;
+}
+.floatingBar {
+  position: absolute;
+  top: 2px;
+  width: 50%;
+  padding-left: 150px;
+  z-index: 1;
+}
+.floatingTitle {
+  position: absolute;
+  top: 2px;
+  height: 70px; // ojo con el responsive
+  width: 100%;
+  padding-left: 112px;
+  z-index: 9999;
+  color: white;
+  display: block;
+  display: flex;
+  align-items: center;
+  font-size: bold;
+}
+.floatingLayout {
+  position: absolute;
+  top: 2px;
+  height: 70px; // ojo con el responsive
+  width: 100%;
+  padding-left: 150px;
+  z-index: 9999;
+  color: white;
+  display: block;
+  display: flex;
+  align-items: center;
+  font-size: bold;
+}
+.mat-drawer-content {
+  position: relative;
+  z-index: 1;
+  display: block;
+  height: calc(100vh - 70px);
+}
+.sidenav-content {
+  // padding: 5px;
+  align-items: center;
+  background-color: var(--azul);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 149%;
+  justify-content: flex-start;
+  margin-top: 0;
+  max-width: 65px;
+  min-width: 110px;
+  width: 100%;
+}

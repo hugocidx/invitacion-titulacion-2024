@@ -1,0 +1,36 @@
+p {
+  font-family: Lato;
+}
+.speed-dial-container[_ngcontent-ng-c1341407011] {
+  position: absolute;
+  right: 25px;
+}
+.speed-dial-container.top {
+  top: 600px;
+}
+.speed-dial-container.bottom {
+  bottom: 15px;
+}
+.sticky{
+  display: flex;
+  box-sizing: border-box;
+  padding: 0;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  white-space: nowrap;
+  height: var(--mat-toolbar-standard-height);
+}
+.container-fluid[_ngcontent-ng-c3904727261] {
+  width: 300px;
+  position: fixed;
+  right: 15px;
+}
+.container, .container-fluid, .container-xl, .container-lg, .container-md, .container-sm {
+  width: 100%;
+  padding-right: 0px;
+  padding-left: 0px;
+  margin-right: auto;
+  margin-left: auto;
+}
+

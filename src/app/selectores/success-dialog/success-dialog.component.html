@@ -1,0 +1,30 @@
+<div class="uc-modal" role="dialog" aria-labelledby="dialog-title">
+  <div class="uc-modal_content uc-message success mb-32">
+    <button class="uc-message_close-button" mat-dialog-close>
+      <i class="uc-icon">close</i>
+    </button>
+    <div class="uc-message_body">
+      <h2 class="mb-24">
+        <i class="uc-icon warning-icon">info</i> Mensaje de éxito
+      </h2>
+      <p class="no-margin">{{ data.msg }}</p>
+      <hr class="uc-hr my-32" />
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <p class="no-margin">Entradas</p>
+          <ul>
+            <li *ngFor="let entry of data.entries">
+              <strong>Código:</strong> {{ entry.code }}
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-6 text-right">
+          <a href="#" class="uc-link uc-btn btn-inline">
+            Más información
+            <i class="uc-icon icon-shape--rounded">arrow_forward</i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<speed-dial-fab
+  class="speed-dial-container"
+  [ngClass]="speedDialFabPosition"
+  [reverse-column-direction]="
+    speedDialFabPosition === SpeedDialFabPosition.Bottom
+  "
+  (fabClick)="handleSuccess($event)"
+  [buttons]="config.speedDialFabButtons"
+></speed-dial-fab>

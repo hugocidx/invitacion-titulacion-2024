@@ -1,0 +1,49 @@
+/* success-dialog.component.css */
+.uc-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.uc-modal_content {
+  background: #fff;
+  border-radius: 8px;
+  padding: 16px;
+  width: 80%;
+  max-width: 600px;
+}
+
+.uc-message {
+  padding: 16px;
+}
+
+.uc-message_close-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+.uc-message_body h2 {
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+}
+
+.uc-message_body p {
+  font-size: 1rem;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.col-md-6 {
+  width: 48%;
+}
+
+.text-right {
+  text-align: right;
+}

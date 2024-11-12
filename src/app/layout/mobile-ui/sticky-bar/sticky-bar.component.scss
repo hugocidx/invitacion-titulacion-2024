@@ -1,0 +1,29 @@
+.container-fluid {
+  position: fixed;
+  right: -19px;
+}
+.mat-toolbar-row, .mat-toolbar-single-row {
+  display: flex;
+  box-sizing: border-box;
+  padding: 0 0px;
+  white-space: nowrap;
+  height: 600px;
+}
+.container, .container-fluid, .container-xl, .container-lg, .container-md, .container-sm {
+  padding-right: 0px;
+  padding-left: 0px;
+  margin-right: 0px;
+  margin-left: 0px;
+  width: 72px; 
+}
+.mat-toolbar {
+  background: #ffffff00;
+  color: white;
+}
+single-row[_ngcontent-ng-c3147568249] {
+  display: flex;
+  box-sizing: border-box;
+  padding: 0 0px;
+  white-space: nowrap;
+  height: 1200px;
+}

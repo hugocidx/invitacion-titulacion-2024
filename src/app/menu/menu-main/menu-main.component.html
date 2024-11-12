@@ -1,0 +1,6 @@
+<h1>Menu principal</h1>
+<ul class="menu_container" *ngFor="let item of items">
+  <button mat-button [routerLink]="item.url" class="full-width">
+    {{ item.text }}
+  </button>
+</ul>

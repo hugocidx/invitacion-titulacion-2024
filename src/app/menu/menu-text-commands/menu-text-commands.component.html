@@ -1,0 +1,46 @@
+<ng-container *transloco="let t">
+  <div class="botonera">
+    <ng-container *ngFor="let item of items">
+      <ng-container *ngIf="item.confirm_required; else normales">
+        <ceres-confirm-code-notification
+          [tipo]="item.tipo"
+          texto_boton="{{ t(item.text_on) }}"
+          [titulo_accion]=""
+          [texto_accion]=""
+          [icono_accion]=""
+          [color]="'secondary'"
+          (confirmar)="handleAction(item.action)"
+          [disabled]="!(hasSelection || item?.zeroItems) || disabled"
+          [attr.aria-label]="item.arialabel"
+        >
+        </ceres-confirm-code-notification>
+      </ng-container>
+      <ng-template #normales>
+        <button
+          *ngIf="!(button[item.action] && item.text_on != undefined)"
+          mat-button
+          (click)="handleAction(item.action)"
+          [disabled]="!(hasSelection || item?.zeroItems) || disabled"
+          [attr.aria-label]="item.arialabel"
+        >
+          <span>{{ t(item.text_on) }}</span>
+        </button>
+        <button
+          *ngIf="button[item.action] == true && item.text_off != undefined"
+          mat-button
+          (click)="
+            item.action_off != undefined
+              ? handleAction(item.action_off)
+              : handleAction(item.action)
+          "
+          [disabled]="!(hasSelection || item?.zeroItems) || disabled"
+          [attr.aria-label]="item.arialabel"
+          color="primary"
+          class="boton_encendido"
+        >
+          <span>{{ t(item.text_on) }}</span>
+        </button>
+      </ng-template>
+    </ng-container>
+  </div>
+</ng-container>

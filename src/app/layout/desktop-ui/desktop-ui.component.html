@@ -1,0 +1,165 @@
+<ng-container *ngIf="config">
+  <!-- Titulo de mantenedor -->
+  <div class="floatingTitle">
+    <!-- Contenido del título -->
+    <ng-content select="[floatingTitle]"></ng-content>
+    <ng-content select="[floatingSegment]"></ng-content>
+    <div class="spacer"></div>
+    <ng-content select="[floatingSummary]"></ng-content>
+    <mat-icon></mat-icon>
+    <mat-icon></mat-icon>
+    <mat-icon></mat-icon>
+    <!-- Botón de reinicio de configuración -->
+    <button mat-button (click)="resetConfig()">
+      <mat-icon>restart_alt</mat-icon>
+    </button>
+    <!-- Botones de control de visibilidad de paneles -->
+    <ng-template ngFor let-c [ngForOf]="config.columns">
+      <ng-template ngFor let-r [ngForOf]="c.rows">
+        <button
+          [class.active]="!r.visible"
+          *ngIf="r.type !== 'main'"
+          data-cy="btn-primary-open"
+          mat-button
+          (click)="
+            r.visible = !r.visible;
+            refreshColumnVisibility();
+            emitColumnVisibility(r.visible)
+          "
+        >
+          <mat-icon *ngIf="r.visible">right_panel_open</mat-icon>
+          <mat-icon *ngIf="!r.visible">right_panel_close</mat-icon>
+          <mat-icon></mat-icon>
+          <div class="btnPanel">
+            <ng-content select="[floatingPanelLateral]"> </ng-content>
+          </div>
+        </button>
+      </ng-template>
+    </ng-template>
+    <mat-icon></mat-icon>
+  </div>
+  <!-- Contenido del menú lateral extendido -->
+  <mat-drawer-container class="contenedorGeneral" autosize>
+    <mat-drawer
+      #drawer2
+      class="sidenav-content"
+      mode="side"
+      hasBackdrop="false"
+    >
+      <!-- Panel menu lateral izquierdo -->
+      <button
+        mat-icon-button
+        (click)="drawer2.toggle(); toggleDrawer(drawer2.opened)"
+        aria-label="contraer menu"
+        matTooltip="contraer menu"
+      >
+        <mat-icon class="iconPanel">keyboard_arrow_left</mat-icon>
+      </button>
+      <ng-content
+        select="[menuLateralExtendido]"
+        *ngIf="drawer2.opened"
+      ></ng-content>
+    </mat-drawer>
+    <!-- Contenido del menú lateral contraído -->
+    <mat-drawer-content>
+      <div class="contenedorGeneral">
+        <div class="leftContainer" *ngIf="!drawer2.opened">
+          <button
+            (click)="drawer2.toggle(); toggleDrawer(drawer2.opened)"
+            *ngIf="drawer2.opened == false"
+            aria-label="expandir menu"
+            class="botonLateral"
+            mat-icon-button
+            matTooltip="expandir menu"
+          >
+            <mat-icon class="iconPanel">keyboard_arrow_right</mat-icon>
+          </button>
+          <ng-content
+            select="[menuLateralContraido]"
+            *ngIf="!drawer2.opened"
+          ></ng-content>
+        </div>
+        <!-- Scroll de layouts mediante split -->
+        <div class="mainContainer">
+          <as-split
+            *ngIf="config"
+            direction="horizontal"
+            [disabled]="config.disabled"
+            (dragEnd)="onDragEnd(-1, $event)"
+          >
+            <!-- contenido de los splits -->
+            <ng-template
+              ngFor
+              let-column
+              [ngForOf]="config.columns"
+              let-icol="index"
+            >
+              <as-split-area
+                *ngIf="column.visible"
+                [order]="icol"
+                [size]="column.size"
+              >
+                <as-split
+                  direction="vertical"
+                  [disabled]="config.disabled"
+                  (dragEnd)="onDragEnd(icol, $event)"
+                >
+                  <ng-template
+                    ngFor
+                    let-row
+                    [ngForOf]="column.rows"
+                    let-irow="index"
+                  >
+                    <as-split-area
+                      *ngIf="row.visible"
+                      [order]="irow"
+                      [size]="row.size"
+                      [minSize]="4"
+                    >
+                      <div [ngSwitch]="row.type">
+                        <!-- SE HAN CREADO 10 SECTORES PERO SU FORMA Y TAMAÑO DEPENDEN DEL CATALOGO GESTOR -->
+                        <div *ngSwitchCase="'main'">
+                          <ng-content select="[main]"></ng-content>
+                        </div>
+                        <div *ngSwitchCase="'a'">
+                          <ng-content select="[a]"></ng-content>
+                        </div>
+                        <div *ngSwitchCase="'b'">
+                          <ng-content select="[b]"></ng-content>
+                        </div>
+                        <div *ngSwitchCase="'c'">
+                          <ng-content select="[c]"></ng-content>
+                        </div>
+                        <div *ngSwitchCase="'d'">
+                          <ng-content select="[d]"></ng-content>
+                        </div>
+                        <div *ngSwitchCase="'e'">
+                          <ng-content select="[e]"></ng-content>
+                        </div>
+                        <div *ngSwitchCase="'f'">
+                          <ng-content select="[f]"></ng-content>
+                        </div>
+                        <div *ngSwitchCase="'g'">
+                          <ng-content select="[g]"></ng-content>
+                        </div>
+                        <div *ngSwitchCase="'h'">
+                          <ng-content select="[h]"></ng-content>
+                        </div>
+                        <div *ngSwitchCase="'i'">
+                          <ng-content select="[i]"></ng-content>
+                        </div>
+                        <div *ngSwitchCase="'j'">
+                          <ng-content select="[j]"></ng-content>
+                        </div>
+                      </div>
+                    </as-split-area>
+                  </ng-template>
+                </as-split>
+              </as-split-area>
+            </ng-template>
+          </as-split>
+        </div>
+      </div>
+    </mat-drawer-content>
+  </mat-drawer-container>
+</ng-container>

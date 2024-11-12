@@ -1,0 +1,32 @@
+<ng-container *transloco="let t">
+  <div class="botonera">
+    <ng-container *ngFor="let item of items">
+      <button
+        *ngIf="!(button[item.action] && item.icon_off != undefined)"
+        mat-icon-button
+        (click)="handleAction(item.action)"
+        [disabled]="!(hasSelection || item?.zeroItems) || disabled"
+        [matTooltip]="t(item.tooltip)"
+        [attr.aria-label]="t(item.arialabel)"
+      >
+        <mat-icon>{{ item.icon_on }}</mat-icon>
+      </button>
+      <button
+        *ngIf="button[item.action] == true && item.icon_off != undefined"
+        mat-icon-button
+        (click)="
+          item.action_off != undefined
+            ? handleAction(item.action_off)
+            : handleAction(item.action)
+        "
+        [disabled]="!(hasSelection || item?.zeroItems) || disabled"
+        [matTooltip]="item.tooltip"
+        [attr.aria-label]="item.arialabel"
+        color="primary"
+        class="boton_encendido"
+      >
+        <mat-icon>{{ item.icon_off }}</mat-icon>
+      </button>
+    </ng-container>
+  </div>
+</ng-container>

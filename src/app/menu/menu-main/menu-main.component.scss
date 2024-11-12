@@ -1,0 +1,16 @@
+h1{
+    text-align: center;
+    margin-bottom: 50px;
+}
+p{
+    color: white;
+}
+.menu ul, li{
+    color:var(--blanco);
+    text-decoration: none;
+    width: 100%;
+}
+.menu_container{
+    display: flex;
+    flex-direction: column;
+}

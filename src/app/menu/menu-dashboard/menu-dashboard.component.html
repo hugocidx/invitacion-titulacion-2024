@@ -1,0 +1,51 @@
+<app-sticky-bar></app-sticky-bar>
+<body>
+  <mat-card>
+    <!-- elementos vacios por ngcontainer, multiplica los elementos internos que tome el ngfor ya sean titulos y labels -->
+    <ng-container *ngFor="let item of data[0].navegacion1">
+      <h2 mat-card-title>{{ item.title }}</h2>
+      <mat-card-subtitle>{{ item.text }}</mat-card-subtitle>
+      <mat-icon></mat-icon>
+      <a
+        mat-list-item
+        class="uc-btn btn-featured"
+        [routerLink]="item.routerlink"
+      >
+        <p>{{ item.label }}</p>
+        <i class="uc-icon icon-shape--rounded icon-size--sm">arrow_forward</i>
+      </a>
+    </ng-container>
+  </mat-card>
+  <br /><br />
+  <mat-card>
+    <ng-container *ngFor="let item of data[0].navegacion2">
+      <h2 mat-card-title>{{ item.title }}</h2>
+      <mat-card-subtitle>{{ item.text }}</mat-card-subtitle>
+      <mat-icon></mat-icon>
+      <a
+        mat-list-item
+        class="uc-btn btn-featured"
+        [routerLink]="item.routerlink"
+      >
+        <p>{{ item.label }}</p>
+        <i class="uc-icon icon-shape--rounded icon-size--sm">arrow_forward</i>
+      </a>
+    </ng-container>
+  </mat-card>
+  <br /><br />
+  <mat-card>
+    <ng-container *ngFor="let item of data[0].navegacion3">
+      <h2 mat-card-title>{{ item.title }}</h2>
+      <mat-card-subtitle>{{ item.text }}</mat-card-subtitle>
+      <mat-icon></mat-icon>
+      <a
+        mat-list-item
+        class="uc-btn btn-featured"
+        [routerLink]="item.routerlink"
+      >
+        <p>{{ item.label }}</p>
+        <i class="uc-icon icon-shape--rounded icon-size--sm">arrow_forward</i>
+      </a>
+    </ng-container>
+  </mat-card>
+</body>

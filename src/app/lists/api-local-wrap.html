@@ -1,0 +1,7 @@
+<ng-template [ngIf]="listSelected == 'accordion'">
+  <ceres-accordion-lists
+    [config]="config"
+    [itemsP]="itemsP"
+    (onDelete)="handleDeleteItem($event)"
+  ></ceres-accordion-lists>
+</ng-template>

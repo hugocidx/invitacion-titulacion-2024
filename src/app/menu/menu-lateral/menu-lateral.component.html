@@ -1,0 +1,53 @@
+<ng-container *transloco="let t">
+  <div class="botoneraVertical">
+    <mat-icon></mat-icon>
+    <ng-container *ngIf="open; else closed">
+      <button
+        (click)="selectOption('viewRecords')"
+        [disabled]="loading"
+        [ngClass]="!viewDeletedItems ? 'nombreColor' : ''"
+        mat-stroked-button
+        matTooltipPosition="right"
+      >
+        <mat-icon>dataset</mat-icon>
+      </button>
+      <button
+        (click)="selectOption('viewPapelera')"
+        [disabled]="loading"
+        [ngClass]="!viewDeletedItems ? '' : 'nombreColor'"
+        mat-stroked-button
+        matTooltipPosition="right"
+      >
+        <mat-icon>delete_sweep</mat-icon>
+      </button>
+    </ng-container>
+    <ng-template #closed>
+      <div class="elementos">
+        <div class="btn1">
+          <button
+            (click)="selectOption('viewRecords')"
+            [disabled]="loading"
+            [ngClass]="!viewDeletedItems ? 'nombreColor' : ''"
+            mat-icon-button
+            matTooltipPosition="right"
+          >
+            <mat-icon>dataset</mat-icon>
+          </button>
+          <span>{{ t(codeclaseFoco) }}</span>
+          <!-- <span>{{ t("lang.menu.name1", { value: claseFoco }) }}</span> -->
+        </div>
+        <div class="btn2">
+          <button
+            (click)="selectOption('viewPapelera')"
+            [disabled]="loading"
+            [ngClass]="!viewDeletedItems ? '' : 'nombreColor'"
+            mat-icon-button
+          >
+            <mat-icon>delete_sweep</mat-icon>
+          </button>
+          <span>{{ t("view_delete_items") }}</span>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+</ng-container>
